@@ -7,6 +7,7 @@ public class BuggyUtilClient {
                 ", last = " + "\"Flannery\"");
         System.out.println("Out: " +
         StringUtils.makePurdueUsername("Sean", "Flannery"));
+        //committed changes by thinkty
     }
 }
 
