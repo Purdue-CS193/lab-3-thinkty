@@ -6,48 +6,43 @@ public class MathUtils {
      * Divide a by b and return the result
      */
     public static double divideNumbers(double dividend, double divisor) {
-        /* Do some casual division ... Super easy ... Shouldn't be any problems here */
-        double res = dividend / divisor;
-        /* Return the DEFINITELY CORRECT result */
-        return res;
+        return dividend / divisor;
     }
 
     /**
      * raiseToPower -- (base)^(exp)
      * Raise the number base to power exp
      */
-    public static double raiseToPower(int base, int exp) {
+    public static double raiseToPower(double base, int exp) {
         /* Set initial result to be just the number */
-//        int res = base;
+        double res = base;
 
-        if (exp == 0) {
+        if (exp == 0) { //if exp is 0, it is always 1
             return 1;
         }
 
-        return Math.pow(base, exp); //???
+        if (base == 0) { //if base is 0 and exp is not 0, return 0
+            return 0;
+        }
+
+        if (exp == 1) { //if exp is 1, return base
+            return base;
+        }
 
         /* Determine if the exponent is negative */
-//        boolean isNegative = false;
-//        if (exp < 0) {
-//            exp *= -1;
-//            isNegative = true;
-//        }
+        if (exp < 0) { // exp is negative
+            exp *= -1;
+            for (int i = 1; i < exp; i++) { //it has already been squared so count from 1
+                res = res * base;
+            }
+            return 1 / res;
 
-        /* Multiply the result by the base exp times
-            Ex: base = 2, exp = 2
-               --> res = 2, then res = 4 */
-//        for (int i = 0; i < exp; i++) {
-//           res = res * base;
-//        }
+        } else { // exp is positive
+            for (int i = 1; i < exp; i++) {
+                res = res * base;
+            }
+            return res;
+        }
 
-        /* If it's a negative exponent, we should invert it! */
-//        if (isNegative) {
-//            double dividedRes = divideNumbers(1.0, res);
-//           return dividedRes;
-//        }
-        /* Otherwise, we are safe to just return the result */
-//        else {
-//            return res;
-//        }
     }    
 }
